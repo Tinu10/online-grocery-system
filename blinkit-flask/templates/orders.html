@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>My Orders</h2>
+
+    {% for o in orders %}
+        <div class="card">
+            Amount: ₹{{ o.amount }}<br>
+            Payment: {{ o.payment_type }}<br>
+            Date: {{ o.date }}
+        </div>
+    {% endfor %}
+
+    <a href="/products">Back to Products</a>
+</div>
+
+</body>
+</html>

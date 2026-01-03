@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Well-come to our Store</title>
+    <title>Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="nav">
+        <a href="/cart">Cart</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <h2>Products</h2>
+
+    {% for category, items in products.items() %}
+        <h3>{{ category }}</h3>
+        {% for p in items %}
+            <div class="card">
+                <b>{{ p.name }}</b><br>
+                ₹{{ p.price }}
+                <form method="post" action="/add">
+                    <input type="hidden" name="item" value="{{ p.name }}">
+                    <input type="hidden" name="price" value="{{ p.price }}">
+                    <button>Add to Cart</button>
+                </form>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+
+</body>
+</html>

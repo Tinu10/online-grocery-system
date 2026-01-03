@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Your Cart</h2>
+
+    {% for name, item in cart.items() %}
+        <div class="card">
+            {{ name }} × {{ item.qty }}<br>
+            ₹{{ item.price * item.qty }}
+        </div>
+    {% endfor %}
+
+    <h3>Total: ₹{{ total }}</h3>
+
+    <a href="/payment">
+        <button>Proceed to Payment</button>
+    </a>
+</div>
+
+</body>
+</html>

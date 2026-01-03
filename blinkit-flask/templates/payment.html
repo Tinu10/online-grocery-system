@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Payment</h2>
+
+    <div class="card">Items Total: ₹{{ total }}</div>
+    <div class="card">GST (5%): ₹{{ gst }}</div>
+    <div class="card">Delivery: ₹{{ delivery }}</div>
+    <div class="card"><b>Final Amount: ₹{{ final }}</b></div>
+
+    <!-- IMPORTANT FORM -->
+    <form method="POST" action="/payment">
+
+        <label>Select Payment Method</label>
+        <select name="payment_type" required>
+            <option value="online">Online</option>
+            <option value="cod">Cash on Delivery</option>
+        </select>
+
+        <button type="submit">Confirm & Pay</button>
+    </form>
+</div>
+
+</body>
+</html>
